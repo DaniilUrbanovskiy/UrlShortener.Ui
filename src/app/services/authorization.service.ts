@@ -8,7 +8,7 @@ import {Observable} from "rxjs";
   providedIn: 'root'
 })
 export class AuthorizationService {
-  api = environment.baseApi;
+  api = 'https://shortener-test.azurewebsites.net/';
 
   constructor(private http: HttpClient) {
   }
