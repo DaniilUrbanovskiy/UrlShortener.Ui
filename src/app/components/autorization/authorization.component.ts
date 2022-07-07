@@ -61,7 +61,7 @@ export class AuthorizationComponent implements OnInit {
         Password: this.userPassword
       }).pipe(catchError((error) => {
           if (error.status === 400) {
-            this.errorMessage = 'Incorrect data';
+            this.errorMessage = error.error;
           }
           return error;
         }),
@@ -82,7 +82,7 @@ export class AuthorizationComponent implements OnInit {
         Password: this.userPassword
       }).pipe(catchError(error => {
           if (error.status === 400) {
-            this.errorMessage = 'Incorrect data';
+            this.errorMessage = error.error;
           }
           return error;
         }),

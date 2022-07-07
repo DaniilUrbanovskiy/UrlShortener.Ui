@@ -1,0 +1,12 @@
+p, h3 {
+  margin: 0;
+}
+
+.bold {
+  font-weight: 800;
+  margin-bottom: 5px;
+}
+
+.bold_upper {
+  text-transform: uppercase;
+}

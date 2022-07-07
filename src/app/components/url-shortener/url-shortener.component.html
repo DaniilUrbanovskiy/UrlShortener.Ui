@@ -40,7 +40,7 @@
       </button>
     </div>
 
-    <table style="max-width: 85%">
+    <table>
       <tr>
         <th class="row-m">Original Link</th>
         <th class="row-m">Shortened Link</th>
@@ -50,8 +50,10 @@
       <tr *ngFor="let url of dataUrls">
         <td class="row-p">{{url.longUrl}}</td>
         <td class="row-p">
-          <a href="{{url.shortUrl}}" matTooltip="{{url.createDate | date:('YYYY-MM-dd')}}
-                      {{url.createdBy}}" [matTooltipPosition]="'after'">
+          <a href="{{url.longUrl}}"
+             matTooltip="{{url.createDate | date:('YYYY-MM-dd')}}
+                      {{url.createdBy}}"
+             [matTooltipPosition]="'after'">
             {{url.shortUrl}}
           </a>
         </td>

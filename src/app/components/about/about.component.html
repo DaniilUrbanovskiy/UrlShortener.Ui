@@ -1,1 +1,30 @@
-<p>about works!</p>
+<h3 class="bold bold_upper">About View</h3>
+<p class="bold">Shortener Url generator logic:</p>
+<p>There is a lot of ways to shorten Url, but I choose way, in which your url address convert to short url address,by
+  using my own converter(Also you can create it by yourself).</p>
+<p>1) It gets 5 last symbols of original url.</p>
+<p>2) Than places random values between this symbols.</p>
+<p>3) Generate unique url address with 10-11 characters.</p>
+<p class="bold">Shortener Url redirection logic:</p>
+<p>Here I will describe the most simple way to redirect from generated url to original url:</p>
+<p>1) I save original and shortened urls like a pair in database.</p>
+<p>2) Than after following shortened link, user will be redirected on original link (client makes request on my REST API
+  and get from DB original link, by the link, which was entered by user).</p>
+<p>3) I used redirection action from ASP .NET MVC Controller.</p>
+<p class="bold">Overview:</p>
+<p>Here I will describe, how I implement this functional in HTML Page:</p>
+<p>1) In top right corner you can see options for authorization(Register/Login)(Created, by using JWT).</p>
+<p>2) On the main page you can see table with 2 columns(original/shortened links)</p>
+<p class="bold">Stack of Technologies:</p>
+<p>1) .NET</p>
+<p>2) ASP .NET MVC(But all logic located on Web Api)</p>
+<p>3) REST API(Implemented client-server architecture)</p>
+<p>4) EntityFrameworkCore(For interaction with database, and implementing CodeFirst approach)</p>
+<p>5) Angular 13(All Frontend side, which is hosting on AWS)</p>
+<p>6) Azure</p>
+<p>7) Git, GitHub, CI/CD</p>
+<p>8) JWT Authorization</p>
+<p class="bold">About hosting:</p>
+<p>1) I have been using Azure for a pretty long time, included services, like “Data Storage, Azure Sql, Web App…”, so in
+  this project I also use some Azure features(My Api and Database are hosted here).</p>
+<p>2) But as I know AWS is better for hosting Web Static Apps, like Angular, so for FE part I decided to try it.</p>
