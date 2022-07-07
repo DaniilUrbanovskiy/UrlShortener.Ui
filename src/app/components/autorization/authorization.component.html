@@ -1,0 +1,66 @@
+<div class="background">
+  <div class="main-block">
+    <div class="buttons">
+      <button class="button-24"
+              (click)="changeContext('registration')">
+        register
+      </button>
+      <button class="button-24"
+              (click)="changeContext('login')">
+        login
+      </button>
+    </div>
+
+    <div class="form"
+         *ngIf="context === 'registration'">
+      <input class="field"
+             type="text"
+             placeholder="Type your name"
+             [(ngModel)]="userName">
+
+      <input class="field"
+             type="text"
+             placeholder="Type your date of birth (YYYY-MM-dd)"
+             [(ngModel)]="userBirthday">
+
+      <input class="field"
+             type="email"
+             placeholder="Type your email"
+             [(ngModel)]="userEmail">
+
+      <input class="field"
+             type="text"
+             placeholder="Type your login"
+             [(ngModel)]="userLogin">
+
+      <input class="field"
+             type="password"
+             placeholder="Type your password"
+             [(ngModel)]="userPassword">
+
+      <button class="button-78"
+              (click)="submit()">Submit
+      </button>
+    </div>
+
+    <div class="form"
+         *ngIf="context === 'login'">
+      <input class="field"
+             type="text"
+             placeholder="Type your login"
+             [(ngModel)]="userLogin">
+
+      <input class="field"
+             type="password"
+             placeholder="Type your password"
+             [(ngModel)]="userPassword">
+
+      <button class="button-78"
+              (click)="submit()">Submit
+      </button>
+    </div>
+
+    <p *ngIf="errorMessage"
+       class="error-message">{{errorMessage}}</p>
+  </div>
+</div>

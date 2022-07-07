@@ -1,0 +1,131 @@
+.main {
+  background: lightcoral;
+  min-height: 100vh;
+  width: 100%;
+  overflow: hidden;
+}
+
+.header-buttons {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin: 30px 30px 0 0;
+}
+
+.shortener-block {
+  width: 100%;
+  padding: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.inputs-block {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 80%;
+  margin-bottom: 30px;
+}
+
+input[type='text'] {
+  border-radius: 5px;
+  width: 100%;
+}
+
+table, th, td {
+  border: 2px solid gray;
+}
+
+tr {
+  text-align: left;
+  padding-left: 10px;
+}
+
+table {
+  overflow: auto;
+  min-width: 80%;
+}
+
+.inputs-block button {
+  padding: 10px;
+  border-radius: 10px;
+  min-height: 45px;
+}
+
+.input-block {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  width: 100%;
+}
+
+.input-block .input-block_checkbox {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+label {
+  margin-left: 5px;
+}
+
+.input {
+  padding: 10px 10px 10px 5px;
+  margin-bottom: 10px;
+}
+
+.input-block button {
+  margin-left: 15px;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid grey;
+}
+
+.row-p, .row-m {
+  padding: 10px;
+}
+
+.footer {
+  width: 100%;
+  height: 80px;
+  border: 2px solid;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: white;
+}
+
+.footer a {
+  color: black;
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: 800;
+}
+
+::ng-deep .mat-tooltip {
+  white-space: pre-line !important;
+}
+
+td a {
+  width: max-content;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.delete-button {
+  padding: 10px;
+  border: 1px solid red;
+  background: red;
+  opacity: 0.5;
+  border-radius: 5px;
+  color: white;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.delete-button:hover {
+  background: black;
+}

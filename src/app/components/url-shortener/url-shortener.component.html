@@ -1,0 +1,70 @@
+<div class="main">
+  <div class="header-buttons">
+    <button class="button-78"
+            [routerLink]="['/authorization', 'login']">LOGIN
+    </button>
+    <button class="button-78"
+            [routerLink]="['/authorization', 'registration']">REGISTER
+    </button>
+  </div>
+
+  <div class="shortener-block">
+    <div class="inputs-block">
+      <div class="input-block">
+        <p>Original link</p>
+        <input type="text"
+               class="input"
+               placeholder="Original link"
+               [(ngModel)]="longLink">
+      </div>
+
+      <div class="input-block">
+        <div class="input-block_checkbox">
+          <input type="checkbox"
+                 id="ownLink"
+                 (change)="typeShortenedLink()">
+          <label for="ownLink">
+            Your own short link
+          </label>
+        </div>
+
+        <input type="text"
+               class="input"
+               placeholder="Shortened link"
+               [disabled]="!isChecked"
+               [(ngModel)]="shortLink">
+      </div>
+
+      <button class="button-78"
+              (click)="generateShortUrl()">Generate
+      </button>
+    </div>
+
+    <table style="max-width: 85%">
+      <tr>
+        <th class="row-m">Original Link</th>
+        <th class="row-m">Shortened Link</th>
+        <th class="row-m">Action</th>
+      </tr>
+
+      <tr *ngFor="let url of dataUrls">
+        <td class="row-p">{{url.longUrl}}</td>
+        <td class="row-p">
+          <a href="{{url.shortUrl}}" matTooltip="{{url.createDate | date:('YYYY-MM-dd')}}
+                      {{url.createdBy}}" [matTooltipPosition]="'after'">
+            {{url.shortUrl}}
+          </a>
+        </td>
+        <td class="row-p">
+          <button class="delete-button"
+                  (click)="deleteUrl(url.shortUrl)">Delete
+          </button>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="footer">
+    <a [routerLink]="'/about'">ABOUT</a>
+  </div>
+</div>
