@@ -64,25 +64,28 @@ export class AuthorizationComponent implements OnInit {
         Birthday: this.userBirthday,
         Email: this.userEmail,
         Password: this.userPassword
-      }).pipe(catchError((error) => {
+      }).pipe(catchError((error) => {    
+        this.errorMessage = " ";
+        if (typeof error.error.error !== 'undefined' && error.status === 400)
+        {
+          this.errorMessage = error.error.error
+        }       
           if (error.status === 400) {
-            this.errorMessage = " ";
             Object.values(error.error.errors).forEach(x =>{
               this.errorMessage += x;
-            });
-            
+            });       
           }
           return error;
         }),
         finalize(() => {
-          if (!this.errorMessage) {
+          if (this.errorMessage === " ") {
             this.context = 'login';
             this.clearForm();
             this.errorMessage = '';
             this.router.navigate(['login'])
           }
         }))
-        .subscribe(res => res);
+        .subscribe(res => res);        
     }
 
     if (this.context === 'login') {
