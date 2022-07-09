@@ -53,6 +53,11 @@ export class AuthorizationComponent implements OnInit {
   submit() {
     if (this.context === 'registration') {
       this.errorMessage = '';
+      if(!this.userBirthday.match(/\d{4}-\d{2}-\d{2}/))
+      {
+        this.errorMessage = 'Incorrect datetime format'
+        return;
+      }
       this.authorizationService.registerUser({
         Login: this.userLogin,
         Name: this.userName,
@@ -61,7 +66,11 @@ export class AuthorizationComponent implements OnInit {
         Password: this.userPassword
       }).pipe(catchError((error) => {
           if (error.status === 400) {
-            this.errorMessage = error.error;
+            this.errorMessage = " ";
+            Object.values(error.error.errors).forEach(x =>{
+              this.errorMessage += x;
+            });
+            
           }
           return error;
         }),
@@ -70,6 +79,7 @@ export class AuthorizationComponent implements OnInit {
             this.context = 'login';
             this.clearForm();
             this.errorMessage = '';
+            this.router.navigate(['login'])
           }
         }))
         .subscribe(res => res);
@@ -82,7 +92,7 @@ export class AuthorizationComponent implements OnInit {
         Password: this.userPassword
       }).pipe(catchError(error => {
           if (error.status === 400) {
-            this.errorMessage = error.error;
+            this.errorMessage = 'Invalid data';
           }
           return error;
         }),

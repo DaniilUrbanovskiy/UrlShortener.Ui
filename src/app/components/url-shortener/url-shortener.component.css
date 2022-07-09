@@ -96,6 +96,8 @@ label {
   justify-content: center;
   align-items: center;
   background: white;
+  position: fixed;
+  bottom: 0;
 }
 
 .footer a {
@@ -103,6 +105,8 @@ label {
   cursor: pointer;
   font-size: 20px;
   font-weight: 800;
+  position: fixed;
+  bottom: 6;
 }
 
 ::ng-deep .mat-tooltip {

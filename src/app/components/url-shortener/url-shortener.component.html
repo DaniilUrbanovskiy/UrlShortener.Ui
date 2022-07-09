@@ -1,10 +1,14 @@
 <div class="main">
   <div class="header-buttons">
     <button class="button-78"
-            [routerLink]="['/authorization', 'login']">LOGIN
+            (click)="logout()"
+            [routerLink]="['/authorization', 'login']"
+            *ngIf="token.length">Logout</button>
+    <button class="button-78"
+            [routerLink]="['/authorization', 'login']" *ngIf="!token.length">LOGIN
     </button>
     <button class="button-78"
-            [routerLink]="['/authorization', 'registration']">REGISTER
+            [routerLink]="['/authorization', 'registration']" *ngIf="!token.length">REGISTER
     </button>
   </div>
 
@@ -38,6 +42,10 @@
       <button class="button-78"
               (click)="generateShortUrl()">Generate
       </button>
+
+      <p *ngIf="errorMessage" style="color: red"
+      class="error-message"><br><h2>{{errorMessage}}</h2></p>
+
     </div>
 
     <table>

@@ -4,8 +4,10 @@ import {UrlShortenerComponent} from "./components/url-shortener/url-shortener.co
 import {AboutComponent} from "./components/about/about.component";
 
 export const routes: Routes = [
-  {path: 'authorization', component: AuthorizationComponent},
-  {path: 'authorization/:context', component: AuthorizationComponent},
+  {path: '', pathMatch: 'full', redirectTo: '/authorization/login'},
+  {path: 'authorization/:login', component: AuthorizationComponent},
+  {path: 'authorization/registration', component: AuthorizationComponent},
   {path: 'shortener', component: UrlShortenerComponent},
   {path: 'about', component: AboutComponent},
+  {path: '**', redirectTo: '/authorization/:login'}
 ]
